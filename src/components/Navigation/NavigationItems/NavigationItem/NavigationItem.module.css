@@ -1,0 +1,22 @@
+.Link a{
+    color:white;
+
+}
+
+.Link a{
+    color:#f3ebe7;
+    text-decoration:none;
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+    font-size: 2rem;
+
+}
+
+.Link a:hover,
+.Link a:active,
+.Link a.active{
+ 
+color:#40A4C8;
+
+}

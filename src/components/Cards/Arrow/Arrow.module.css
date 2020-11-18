@@ -1,0 +1,11 @@
+svg{
+    fill: lightblue;
+    margin: .5em;
+}
+
+
+
+.Left{
+    transform: rotate(180deg);
+
+}

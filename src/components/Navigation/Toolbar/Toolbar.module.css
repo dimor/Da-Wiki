@@ -1,0 +1,46 @@
+.Toolbar{
+
+    height:8vmax;
+    width: 100%;
+    position: relative;
+    top:0;
+    left: 0;
+    background-color:#59606d;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:0 20px;
+    box-sizing: border-box;
+    z-index: 10;
+    box-shadow: 0 2px 4px -1px rgba(0,0,0,0.25);
+}
+
+
+
+
+@media(min-width:500px){
+    .Toolbar svg{
+        display:none;
+    }
+
+    .Toolbar nav ul{
+
+        display: flex;
+        flex-direction: row-reverse;
+        margin-left: 1em;
+    }
+
+    .Toolbar nav ul li a{
+      
+        font-size: 1em;
+        margin-left: .4em;
+    
+    }
+}
+@media(max-width:499px){
+
+.Toolbar nav{
+    display: none;
+}
+
+}
