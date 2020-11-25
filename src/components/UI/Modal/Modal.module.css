@@ -1,33 +1,30 @@
-.Modal{
-    position: fixed;
+.Modal {
     z-index: 500;
     background-color: white;
     width: 90%;
-    height: auto;
+    height: max-content;
     border: 1px solid #ccc;
     box-shadow: 1px 1px 1px black;
-    padding: 2px;
     box-sizing: border-box;
     transition: all 0.3s ease-out;
-}
-
-.Modal img{
-
-width: 100%;
-height: auto;
+    position: fixed;
+    display: flex;
 
 }
 
+.Modal img {
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+}
 
-.Open{
-
+.Open {
     transform: translateX(0);
     opacity: 1;
- 
 }
 
-.Close{
+.Close {
     transform: translateX(-100vw);
     opacity: 0;
- 
 }

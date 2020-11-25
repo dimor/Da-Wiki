@@ -2,12 +2,12 @@ import React, { useEffect ,useCallback } from 'react';
 import classes from './Home.module.css';
 import Cards from "../../components/Cards/Cards";
 import {useDispatch,useSelector} from 'react-redux';
-import * as actions from '../../store/index'
+import * as actions from '../../store/actions/index'
 import { Spinner } from 'react-spinners-css';
 
 const Home = props => {
-    const loading = useSelector(state => state.loading);
-    const cards = useSelector(state=>state.cards);
+    const loading = useSelector(state => state.indx.loading);
+    const cards = useSelector(state=>state.indx.cards);
     const dispatch = useDispatch();
     const onFetchCards = useCallback(()=>dispatch(actions.fetchCards()),[dispatch])
 

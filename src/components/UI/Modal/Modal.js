@@ -13,7 +13,7 @@ const Modal = (props) => {
 
     return (
         <React.Fragment>
-            <Backdrop isOpen={props.show} toggle={props.clearUrl}/>
+            <Backdrop isOpen={props.show} toggle={props.close}/>
             <div className={`${classes.Modal} ${styles}`}>{props.children}</div>
         </React.Fragment>
 

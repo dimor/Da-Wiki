@@ -5,3 +5,33 @@ justify-content: center;
 padding: .4em;
 
 }
+
+
+.PleaseLogin{
+    text-align:center;
+    height: 20vh;
+    padding:1em;
+}
+
+.PleaseLogin button{
+    height: 10vh;
+    margin-top:1em; 
+}
+
+.PleaseLogin a:link,
+.PleaseLogin a:visited {
+    background-color: white;
+    color: rgb(51, 47, 47);
+    border: 2px solid lightblue;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 70%;
+  }
+
+
+  .PleseLogin a:hover, a:active {
+    background-color: lightblue;
+    color: white;
+  }

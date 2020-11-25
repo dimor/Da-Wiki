@@ -32,7 +32,6 @@ export const setLoading = () => {
 
 export const setForward = (current,cards) => {
     return dispatch=>{
-        console.log(cards);
         if(!cards[current+1]){
             dispatch(setLoading())
         }else{
@@ -68,7 +67,6 @@ export const fetchCards = () => {
         dispatch(cardsFetchStart())
         const url = 'https://cors-anywhere.herokuapp.com/https://he.wikipedia.org/w/api.php?%20format=json&action=query&prop=extracts|pageimages|info&exsentences=2&exintro=&explaintext=&generator=random&grnlimit=10&grnnamespace=0&utf8=1&formatversion=2&piprop=thumbnail&pithumbsize=300&pilicense=any&redirect=1&inprop=url';
         axios.get(url).then(res => {
-            console.log(res);
             const cards = res.data.query.pages;
             const filteredCards = cards.filter(card => !card.extract.includes('האם התכוונתם ל'));
             dispatch(cardsFetchSuccess(filteredCards))

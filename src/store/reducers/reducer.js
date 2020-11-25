@@ -1,11 +1,12 @@
 
-import * as actionsTypes from './actionTypes';
+import * as actionsTypes from '../actions/actionTypes';
 const initialState = {
 
     cards: [],
     error: '',
     loading: true,
-    current: 0
+    current: 0,
+    isSignin:false
 
 }
 

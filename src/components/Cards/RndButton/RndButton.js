@@ -3,7 +3,7 @@ import {useSelector} from 'react-redux';
 import { Ellipsis } from 'react-spinners-css';
 const RndButton = (props) => {
 
-    const loading = useSelector(state => state.loading);
+    const loading = useSelector(state => state.indx.loading);
 
     return (
 

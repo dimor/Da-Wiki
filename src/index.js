@@ -2,18 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { createStore, applyMiddleware,compose } from 'redux';
+import { createStore, applyMiddleware,compose,combineReducers } from 'redux';
 import { Provider } from 'react-redux'
-import reducer from './store/reducer';
+import reducer from './store/reducers/reducer';
+import authReducer from './store/reducers/authReducer';
 import thunk from 'redux-thunk';
 import { BrowserRouter } from 'react-router-dom';
-import firebase from "firebase/app";
-import "firebase/auth";
+import firebase from 'firebase/app';
+import 'firebase/auth';
 
 
 const composeEnhancers = (process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null) || compose;
 
-const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)));
+const rootReducer = combineReducers({
+  indx : reducer,
+  auth : authReducer
+})
+
+
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
 
 const firebaseConfig = {
   apiKey: "AIzaSyCHtXKucL5fFLpYww64gWWwRXc6N-dSuSc",

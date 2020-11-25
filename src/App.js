@@ -7,7 +7,6 @@ import Login from './containers/Login/Login';
 
 const App=()=> {
   return (
-
     <div className="App">
       <Layout>
         <Route exact path={'/'} component={Home} />
