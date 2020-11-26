@@ -1,0 +1,23 @@
+.User{
+  
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    padding:2em 0 1em 0em;
+    background-color: #59606d;
+    margin:0;
+}   
+
+.User p{
+    color:white;
+    text-align: center;
+    margin-top:.9em;
+    font-family: Impact;
+}
+
+.User img{
+    width: 30%;
+    height: auto;
+    border-radius: 20%;
+}

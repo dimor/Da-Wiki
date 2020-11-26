@@ -4,3 +4,8 @@ export const FETCH_CARDS_FAILED = 'FETCH_CARDS_FAILED';
 export const SET_NEXT_CARD = 'SET_NEXT_CARD';
 export const SET_PREVIOUS_CARD = 'SET_NEXT_CARD';
 export const SET_LOADING = 'SET_LOADING'
+
+
+export const SIGN_IN_START = 'SIGN_IN_START';
+export const SIGN_IN_SUCCESS = 'SIGN_IN_SUCCESS';
+export const SIGN_IN_FAILED = 'SIGN_IN_FAILED';
