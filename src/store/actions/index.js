@@ -7,5 +7,6 @@ setPreviousCard
 
 
 export{
-    signIn
+    signIn,
+    signOut,
 }from './authActions'

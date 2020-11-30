@@ -11,7 +11,11 @@ const Card = props => {
     const extract = card.extract;
     const imageNotFound = 'https://www.thehotelescorts.com/kota/wp-content/themes/escorts/assets/images/no-image.png';
     const fullurl = card.fullurl;
+    const pageid = card.pageid;
     const thumbnail = card.thumbnail ? card.thumbnail.source : imageNotFound;
+
+
+
 
     const [loaded, setLoaded] = useState(false);
 
@@ -44,7 +48,7 @@ const Card = props => {
                 <h3>{title}</h3>
                 <Scroll><p>{extract}</p></Scroll>
             </div>
-            <SocialButtons url={fullurl} />
+            <SocialButtons url={fullurl} pageid={pageid} />
         </div>)
 }
 

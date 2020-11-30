@@ -5,15 +5,28 @@ import classes from './SocialButtons.module.css';
 import Website from './Website/Website';
 import React, { useState } from 'react';
 import {NavLink} from 'react-router-dom'
+import firebase from 'firebase';
+import { Default } from 'react-spinners-css';
+
 
 const SocialButtons = props => {
 
     const [showModal, setModal] = useState(false);
+    
+    const user = firebase.auth().currentUser;
+    const db = firebase.firestore();
+
+    const pageid = props.pageid;
+
+   
 
     const likeClicked = () => {
-        //if SignIn => like 
-        //else:
-        setModal(true);
+        if(user){
+
+        }else{
+            setModal(true);
+        }
+      
     }
 
     const toggleModal = () => {

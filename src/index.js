@@ -10,6 +10,7 @@ import thunk from 'redux-thunk';
 import { BrowserRouter } from 'react-router-dom';
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import 'firebase/firestore';
 
 
 const composeEnhancers = (process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null) || compose;
@@ -33,8 +34,8 @@ const firebaseConfig = {
   measurementId: "G-QE4LNHB1Z3"
 };
 
-
 firebase.initializeApp(firebaseConfig);
+
 
 ReactDOM.render(
   <React.StrictMode>
