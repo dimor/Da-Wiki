@@ -7,6 +7,9 @@ import React, { useState } from 'react';
 import {NavLink} from 'react-router-dom'
 import firebase from 'firebase';
 import { Default } from 'react-spinners-css';
+import {useDispatch,useSelector} from 'react-redux';
+import * as actions from '../../store/actions/index';
+
 
 
 const SocialButtons = props => {
@@ -15,14 +18,14 @@ const SocialButtons = props => {
     
     const user = firebase.auth().currentUser;
     const db = firebase.firestore();
-
+    const dispatch = useDispatch();
     const pageid = props.pageid;
-
-   
+    const onLikeCard = (db,user,pageid)=> dispatch(actions.onLikeCard(db,user,pageid))
+    const likeLoader = useSelector(state=> state.indx.likeLoader);
 
     const likeClicked = () => {
         if(user){
-
+            onLikeCard(db,user,pageid);
         }else{
             setModal(true);
         }
@@ -36,7 +39,7 @@ const SocialButtons = props => {
     return (
         <React.Fragment>
             <div className={classes.SocialButtons}>
-                <Like clicked={likeClicked} />
+                {likeLoader?<Default size={44}/>:<Like clicked={likeClicked} />}
                 <Website url={props.url} />
             </div>
             <Modal show={showModal} close={toggleModal}>

@@ -2,7 +2,8 @@ export{
 setForward,
 fetchCards,
 setNextCard,
-setPreviousCard
+setPreviousCard,
+onLikeCard
 }from './actions';
 
 
