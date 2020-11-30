@@ -6,7 +6,9 @@ const initialState = {
     error: '',
     loading: true,
     current: 0,
-    isSignin:false
+    isSignin: false,
+    likeLoader: false,
+    likeError: ''
 
 }
 
@@ -24,9 +26,15 @@ const reducer = (state = initialState, action) => {
         case actionsTypes.SET_NEXT_CARD:
             return { ...state, current: state.current + 1 }
         case actionsTypes.SET_PREVIOUS_CARD:
-            return { ...state, current: state.current -1 }
+            return { ...state, current: state.current - 1 }
         case actionsTypes.SET_LOADING:
-            return{...state,loading:true}
+            return { ...state, loading: true }
+        case actionsTypes.LIKE_CARD_START:
+            return { ...state, likeLoader: true }
+        case actionsTypes.LIKE_CARD_SUCCESS:
+            return { ...state, likeLoader: false }
+        case actionsTypes.LIKE_CARD_FAILED:
+            return {...state,likeLoader:false}
         default: return state;
 
 

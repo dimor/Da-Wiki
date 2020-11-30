@@ -64,6 +64,12 @@ export const setPreviousCard = () => {
 }
 
 
+
+
+
+
+
+
 export const cardLikeSuccess = () =>{
     return{
         type:actionTypes.LIKE_CARD_FAILED
@@ -71,12 +77,12 @@ export const cardLikeSuccess = () =>{
 }
 
 
-export const cardLikeFailed = () =>{
+export const cardLikeFailed = (error) =>{
     return{
-        type:actionTypes.LIKE_CARD_SUCCESS
+        type:actionTypes.LIKE_CARD_SUCCESS,
+        error:error
     }
 }
-
 
 
 export const cardLikeStart = () =>{
