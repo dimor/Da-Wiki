@@ -9,3 +9,13 @@ export const SET_LOADING = 'SET_LOADING'
 export const SIGN_IN_START = 'SIGN_IN_START';
 export const SIGN_IN_SUCCESS = 'SIGN_IN_SUCCESS';
 export const SIGN_IN_FAILED = 'SIGN_IN_FAILED';
+
+export const SIGN_OUT_START = 'SIGN_OUT_START';
+export const SIGN_OUT_SUCCESS = 'SIGN_OUT_SUCCESS';
+export const SIGN_OUT_FAILED = 'SIGN_OUT_FAILED';
+
+
+export const LIKE_CARD_START = 'LIKE_CARD_START';
+export const LIKE_CARD_SUCCESS = 'LIKE_CARD_SUCCESS';
+export const LIKE_CARD_FAILED = 'LIKE_CARD_FAILED';
+
