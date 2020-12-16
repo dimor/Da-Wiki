@@ -3,11 +3,11 @@ import Modal from '../UI/Modal/Modal';
 import Like from './Like/Like';
 import classes from './SocialButtons.module.css';
 import Website from './Website/Website';
-import React, { useState } from 'react';
-import {NavLink} from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom'
 import firebase from 'firebase';
 import { Default } from 'react-spinners-css';
-import {useDispatch,useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as actions from '../../store/actions/index';
 
 
@@ -15,43 +15,81 @@ import * as actions from '../../store/actions/index';
 const SocialButtons = props => {
 
     const [showModal, setModal] = useState(false);
-    
     const user = firebase.auth().currentUser;
     const db = firebase.firestore();
     const dispatch = useDispatch();
     const pageid = props.pageid;
-    const onLikeCard = (db,user,pageid)=> dispatch(actions.onLikeCard(db,user,pageid))
-    const likeLoader = useSelector(state=> state.indx.likeLoader);
+    const onLikeCard = (db, user, pageid, isIdExist,index) => dispatch(actions.onLikeCard(db, user, pageid, isIdExist,index))
+    const likeLoader = useSelector(state => state.favorite.likeLoader);
+    const favoriteIds = useSelector(state => state.favorite.userFavoriteIds);
+    const [isLikePressed, setOnLikePressed] = useState(false);
+
+
+
+
 
     const likeClicked = () => {
-        if(user){
-            onLikeCard(db,user,pageid);
-        }else{
+        if (user) {
+            let isIdExist = favoriteIds.includes(`${pageid}`);
+            onLikeCard(db, user, pageid, isIdExist ,props.index);
+        } else {
             setModal(true);
         }
-      
+
     }
+
+
+    useEffect(()=>{
+        setOnLikePressed(false);
+        if(favoriteIds.includes(`${pageid}`)){
+            setOnLikePressed(true)
+        }
+    },[favoriteIds,pageid])
+
+
+    console.log('social render', favoriteIds);
 
     const toggleModal = () => {
         setModal((pre) => !pre);
     }
 
+
+    const socialClasses = [classes.SocialButtons];
+
+    if (props.item) {
+        socialClasses.push(classes.Item)
+    }
+
+
+    let modal = props.item
+        ? null
+        :
+        <Modal show={showModal} close={toggleModal}>
+            <div
+                className={classes.PleaseLogin}>
+                <h3>על מנת להשתמש במועדפים יש להיכנס למערכת</h3>
+                <NavLink to="/login">הכנס</NavLink>
+            </div>
+        </Modal>
+
     return (
         <React.Fragment>
-            <div className={classes.SocialButtons}>
-                {likeLoader?<Default size={44}/>:<Like clicked={likeClicked} />}
+            <div className={socialClasses.join(' ')}>
+                {likeLoader ? <Default size={44} /> : <Like exist={isLikePressed} clicked={likeClicked} />}
                 <Website url={props.url} />
             </div>
-            <Modal show={showModal} close={toggleModal}>
-                <div
-                    className={classes.PleaseLogin}>
-                    <h3>על מנת להשתמש במועדפים יש להיכנס למערכת</h3>
-                   <NavLink to="/login">הכנס</NavLink>
-                </div>
-            </Modal>
+            {modal}
         </React.Fragment>
     )
 }
 
 
-export default SocialButtons;
+const willRender = (prevProps, nextProps) => {
+    if (prevProps.pageid !== nextProps.pageid) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+export default React.memo(SocialButtons, willRender);

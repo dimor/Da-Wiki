@@ -3,7 +3,23 @@
 display: flex;
 justify-content: center;
 padding: .4em;
+}
 
+.SocialButtons svg{
+  margin: .5em;
+}
+
+
+
+.SocialButtons.Item{
+  flex-direction: column;
+  height: max-content;
+  width:max-content;
+  padding:0;
+  justify-content: center;
+  margin:0;
+  display: flex;
+  justify-self: center;
 }
 
 
