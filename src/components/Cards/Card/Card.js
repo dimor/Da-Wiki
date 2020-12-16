@@ -13,44 +13,47 @@ const Card = props => {
     const fullurl = card.fullurl;
     const pageid = card.pageid;
     const thumbnail = card.thumbnail ? card.thumbnail.source : imageNotFound;
+    const imageThumbnail = useRef(null);
+    const [isImageLoading, setIsImageLoading] = useState(true);
 
-
-
-
-    const [loaded, setLoaded] = useState(false);
 
 
     useEffect(() => {
-        let img = new Image();
-        img.src = thumbnail;
-
-        img.onload = ((e) => {
-            setLoaded(true)
+        setIsImageLoading(true);
+        imageThumbnail.current.src = thumbnail;
+        imageThumbnail.current.onload = (() => {
+            setIsImageLoading(false)
         })
-
-        return (() => {
-            img = null;
-            setLoaded(false)
-        })
-
     }, [thumbnail])
+
 
     return (
         <div className={classes.Card}>
-            {!loaded ? <Default color="lightblue" /> :
-                <div className={classes.Image}
-                    style={{ backgroundImage: `url(${thumbnail})` }}
-                    onClick={() => props.gallery(thumbnail)}
-                ><div className={classes.Badge}><Magnifier />
-                    </div></div>}
+            {console.log('card- rendering')}
+
+            <img className={isImageLoading ? classes.Hide : null} ref={imageThumbnail} alt="thumbnail" />
+            {isImageLoading ? <Default color="lightblue" /> : null}
 
             <div className={classes.Container}>
                 <h3>{title}</h3>
-                <Scroll><p>{extract}</p></Scroll>
+                <Scroll pageid={pageid} height={180}><p>{extract}</p></Scroll>
             </div>
             <SocialButtons url={fullurl} pageid={pageid} />
         </div>)
 }
 
 
-export default Card; 
+
+const isEqual =(prevProps, nextProps) => {
+
+    // if(prevProps.pageid !== nextProps.pageid){
+    //     return false;
+    // }else{
+    //     return true;
+    // }
+  }
+
+
+
+
+export default React.memo(Card,isEqual); 

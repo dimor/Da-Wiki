@@ -6,6 +6,7 @@ import { createStore, applyMiddleware,compose,combineReducers } from 'redux';
 import { Provider } from 'react-redux'
 import reducer from './store/reducers/reducer';
 import authReducer from './store/reducers/authReducer';
+import favoriteReducer from './store/reducers/favoriteReducer';
 import thunk from 'redux-thunk';
 import { BrowserRouter } from 'react-router-dom';
 import firebase from 'firebase/app';
@@ -17,7 +18,8 @@ const composeEnhancers = (process.env.NODE_ENV === 'development' ? window.__REDU
 
 const rootReducer = combineReducers({
   indx : reducer,
-  auth : authReducer
+  auth : authReducer,
+  favorite:favoriteReducer
 })
 
 

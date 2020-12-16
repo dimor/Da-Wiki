@@ -1,13 +1,19 @@
-export{
-setForward,
-fetchCards,
-setNextCard,
-setPreviousCard,
-onLikeCard
-}from './actions';
+export {
+    setForward,
+    fetchCards,
+    setNextCard,
+    setPreviousCard
+} from './actions';
 
 
-export{
+export {
     signIn,
-    signOut,
-}from './authActions'
+    signOut
+} from './authActions'
+
+export{
+    fetchFavoriteUserIds,
+    onLikeCard,
+    clearFavoriteUserIds,
+    fetchFavoriteCards
+}from './favoriteActions'

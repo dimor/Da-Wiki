@@ -34,6 +34,7 @@ export const setLoading = () => {
 
 export const setForward = (current,cards) => {
     return dispatch=>{
+
         if(!cards[current+1]){
             dispatch(setLoading())
         }else{
@@ -62,53 +63,6 @@ export const setPreviousCard = () => {
         type: actionTypes.SET_PREVIOUS_CARD
     }
 }
-
-
-
-
-
-
-
-
-export const cardLikeSuccess = () =>{
-    return{
-        type:actionTypes.LIKE_CARD_FAILED
-    }
-}
-
-
-export const cardLikeFailed = (error) =>{
-    return{
-        type:actionTypes.LIKE_CARD_SUCCESS,
-        error:error
-    }
-}
-
-
-export const cardLikeStart = () =>{
-    return{
-        type:actionTypes.LIKE_CARD_START
-    }
-}
-
-
-export const onLikeCard = (db,user,pageid)=>dispatch=>{
-    
-    dispatch(cardLikeStart());
-
-    db.collection(user.uid).doc(`${pageid}`).set({})
-    .then( ()=> {
-        dispatch(cardLikeSuccess()); 
-    })
-    .catch(function(error) {
-        dispatch(cardLikeFailed(error));
-    });
-    
-
-
-}
-
-
 
 
 export const fetchCards = () => {

@@ -1,8 +1,7 @@
-import { logDOM } from '@testing-library/react';
+
 import { setForward } from './actions';
 import * as actionTypes from './actionTypes';
 import * as actions from './index'
-import {setUser} from './utils';
 
 
 export const signInStart = () => {
@@ -52,6 +51,7 @@ export const signOut = (firebase) => dispatch => {
     dispatch(signOutStart());
     firebase.auth().signOut()
     .then(()=> {
+        dispatch(actions.clearFavoriteUserIds())
         dispatch(signOutSuccess())
       }).catch(error=> {
         dispatch(signOutFailed(error));
@@ -63,7 +63,7 @@ export const signOut = (firebase) => dispatch => {
 export const signIn = (providerName, firebase) => dispatch => {
 
     dispatch(signInStart())
-
+    
     const provider = new providerName();
 
     firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
@@ -80,6 +80,7 @@ export const signIn = (providerName, firebase) => dispatch => {
     .catch(function(error) {
       var errorMessage = error.message;
       console.log(errorMessage);
+      dispatch(signInFailed(errorMessage))
     });
 
 
