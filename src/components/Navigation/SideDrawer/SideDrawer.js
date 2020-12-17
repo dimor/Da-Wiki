@@ -5,7 +5,7 @@ import React from 'react';
 import NavigationItems from '../NavigationItems/NavigationItems'
 import { useSelector,useDispatch} from 'react-redux';
 import User from '../../../components/User/User';
-import firebase from 'firebase';
+import firebase from '../../../firebase';
  import * as actions from '../../../store/actions/index';
 
 

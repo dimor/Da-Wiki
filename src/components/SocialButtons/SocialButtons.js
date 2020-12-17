@@ -5,7 +5,7 @@ import classes from './SocialButtons.module.css';
 import Website from './Website/Website';
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom'
-import firebase from 'firebase';
+import firebase from '../../firebase';
 import { Default } from 'react-spinners-css';
 import { useDispatch, useSelector } from 'react-redux';
 import * as actions from '../../store/actions/index';

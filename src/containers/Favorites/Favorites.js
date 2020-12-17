@@ -5,7 +5,7 @@ import Scroll from '../../containers/Scroll/Scroll';
 import * as actions from '../../store/actions/index';
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect } from 'react';
-import firebase from 'firebase';
+import firebase from '../../firebase';
 import { Default } from 'react-spinners-css';
 import { Redirect } from 'react-router-dom';
 

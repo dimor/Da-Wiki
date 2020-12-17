@@ -4,7 +4,7 @@ import Cards from "../../components/Cards/Cards";
 import { useDispatch, useSelector } from 'react-redux';
 import * as actions from '../../store/actions/index'
 import { Spinner } from 'react-spinners-css';
-import firebase from 'firebase';
+import firebase from '../../firebase';
 
 
 

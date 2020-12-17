@@ -1,5 +1,5 @@
 import * as actionTypes from './actionTypes';
-import firebase from 'firebase';
+import firebase from '../../firebase';
 import axios from 'axios';
 
 
