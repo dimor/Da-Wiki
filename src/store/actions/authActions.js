@@ -3,7 +3,6 @@ import { setForward } from './actions';
 import * as actionTypes from './actionTypes';
 import * as actions from './index'
 
-
 export const signInStart = () => {
 
     return { type: actionTypes.SIGN_IN_START }
@@ -64,12 +63,15 @@ export const signIn = (providerName, firebase) => dispatch => {
 
     dispatch(signInStart())
     
-    const provider = new providerName();
+        let provider = new providerName();
+
+
+    console.log(firebase);
 
     firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
     .then(()=> {
       return firebase.auth().signInWithPopup(provider)
-          .then(result => {
+          .then((result) => {
               dispatch(signInSuccess())
           }).catch(error => {
               const errorMessage = error.message;
