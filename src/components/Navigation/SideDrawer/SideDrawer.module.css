@@ -3,10 +3,9 @@
     width: 70%;
     height: 100%;
     max-width: 80%;
-    background-color:lightblue;
     z-index: 100;
     position: fixed;
-    right: 0;
+    right: -1px;
     top:0;
     transition: transform ease-out 0.3s;
     display: flex;
@@ -21,6 +20,7 @@
 
 .Open{
     transform: translateX(0);
+  
 }
 
 .Close{

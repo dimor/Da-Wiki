@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as actions from '../../store/actions/index'
 import { Spinner } from 'react-spinners-css';
 import firebase from '../../firebase';
-
+import {LOADER_COLOR,APP_BACKGROUND_COLOR} from '../../constants';
 
 
 const Home = props => {
@@ -33,9 +33,9 @@ const Home = props => {
 
 
     return (
-        <div className={classes.Home}>
+        <div style={{backgroundColor:APP_BACKGROUND_COLOR}} className={classes.Home}>
             {console.log('Home - Rendering')}
-            {cards.length ? <Cards cards={cards} /> : <Spinner />}
+            {cards.length ? <Cards cards={cards} /> : <Spinner color={LOADER_COLOR} />}
         </div>
     )
 }

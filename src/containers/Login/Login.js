@@ -1,7 +1,6 @@
 import classes from "./Login.module.css";
 import Logo from '../../components/Logo/Logo';
-import firebase from '../../firebase';
-// import firebase from 'firebase/app'
+import firebase from 'firebase/app'
 import { useDispatch, useSelector } from 'react-redux';
 import * as actions from '../../store/actions/index';
 import { Roller } from 'react-spinners-css';

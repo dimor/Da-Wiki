@@ -12,6 +12,7 @@
     align-items: center;
     flex-direction: column;
     direction: rtl;
+    background-color:white;
 }
 
 .Hide{

@@ -9,7 +9,7 @@ import firebase from '../../firebase';
 import { Default } from 'react-spinners-css';
 import { useDispatch, useSelector } from 'react-redux';
 import * as actions from '../../store/actions/index';
-
+import {LOADER_COLOR} from '../../constants';
 
 
 const SocialButtons = props => {
@@ -19,7 +19,7 @@ const SocialButtons = props => {
     const db = firebase.firestore();
     const dispatch = useDispatch();
     const pageid = props.pageid;
-    const onLikeCard = (db, user, pageid, isIdExist,index) => dispatch(actions.onLikeCard(db, user, pageid, isIdExist,index))
+    const onLikeCard = (db, user, pageid, isIdExist) => dispatch(actions.onLikeCard(db, user, pageid, isIdExist))
     const likeLoader = useSelector(state => state.favorite.likeLoader);
     const favoriteIds = useSelector(state => state.favorite.userFavoriteIds);
     const [isLikePressed, setOnLikePressed] = useState(false);
@@ -31,7 +31,7 @@ const SocialButtons = props => {
     const likeClicked = () => {
         if (user) {
             let isIdExist = favoriteIds.includes(`${pageid}`);
-            onLikeCard(db, user, pageid, isIdExist ,props.index);
+            onLikeCard(db, user, pageid, isIdExist);
         } else {
             setModal(true);
         }
@@ -46,8 +46,6 @@ const SocialButtons = props => {
         }
     },[favoriteIds,pageid])
 
-
-    console.log('social render', favoriteIds);
 
     const toggleModal = () => {
         setModal((pre) => !pre);
@@ -75,7 +73,7 @@ const SocialButtons = props => {
     return (
         <React.Fragment>
             <div className={socialClasses.join(' ')}>
-                {likeLoader ? <Default size={44} /> : <Like exist={isLikePressed} clicked={likeClicked} />}
+                {likeLoader ? <Default color={LOADER_COLOR} size={44} /> : <Like exist={isLikePressed} clicked={likeClicked} />}
                 <Website url={props.url} />
             </div>
             {modal}

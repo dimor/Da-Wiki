@@ -39,7 +39,7 @@ const Cards = props => {
             {console.log('Cards- redndering')}
             <Card card={cards[current]} gallery={setGallery} />
             <RndButton click={forward} />
-            {imgUrl ? <Modal close={clearGalllery} show={imgUrl}><img src={imgUrl} /></Modal> : null}
+            {imgUrl ? <Modal close={clearGalllery} show={imgUrl}><img src={imgUrl} alt={'gallery'} /></Modal> : null}
         </div>
 
     );

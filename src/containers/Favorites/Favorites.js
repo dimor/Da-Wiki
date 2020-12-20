@@ -30,14 +30,6 @@ export const Favorites = () => {
 
     console.log(cardList);
 
-    const removeCard = (pageid) =>{
-
-        
-
-    }
-
-
-
     
     return (
         <>

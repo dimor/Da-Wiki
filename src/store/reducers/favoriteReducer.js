@@ -14,15 +14,13 @@ const initialState = {
 const cardLikeAction = (state, action) => {
 
     let listUserFavoriteIds;
-    let listOfCards = [...state.cards]
+    let listOfCards;
 
 
     if (action.isIdExist) {
 
         listUserFavoriteIds = state.userFavoriteIds.filter(id => id !== `${action.pageid}`);
-        console.log(listOfCards);
-        listOfCards.splice(action.index,1);
-
+        listOfCards = state.cards.filter(card=> card.pageid !== action.pageid);
 
     } else {
 

@@ -4,19 +4,19 @@ import Magnifier from '../Magnifier/Magnifier';
 import classes from './Card.module.css';
 import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { Default } from 'react-spinners-css';
+import ImageNotFound from '../../../assets/image-not-found.png';
+import {LOADER_COLOR} from '../../../constants';
 
 const Card = props => {
     const { card } = props;
     const title = card.title;
     const extract = card.extract;
-    const imageNotFound = 'https://www.thehotelescorts.com/kota/wp-content/themes/escorts/assets/images/no-image.png';
     const fullurl = card.fullurl;
     const pageid = card.pageid;
-    const thumbnail = card.thumbnail ? card.thumbnail.source : imageNotFound;
+    const thumbnail = card.thumbnail ? card.thumbnail.source : ImageNotFound;
     const imageThumbnail = useRef(null);
     const [isImageLoading, setIsImageLoading] = useState(true);
-
-
+  
 
     useEffect(() => {
         setIsImageLoading(true);
@@ -32,7 +32,7 @@ const Card = props => {
             {console.log('card- rendering')}
 
             <img className={isImageLoading ? classes.Hide : null} ref={imageThumbnail} alt="thumbnail" />
-            {isImageLoading ? <Default color="lightblue" /> : null}
+            {isImageLoading ? <Default color={LOADER_COLOR} /> : null}
 
             <div className={classes.Container}>
                 <h3>{title}</h3>
@@ -44,16 +44,7 @@ const Card = props => {
 
 
 
-const isEqual =(prevProps, nextProps) => {
-
-    // if(prevProps.pageid !== nextProps.pageid){
-    //     return false;
-    // }else{
-    //     return true;
-    // }
-  }
 
 
 
-
-export default React.memo(Card,isEqual); 
+export default React.memo(Card); 

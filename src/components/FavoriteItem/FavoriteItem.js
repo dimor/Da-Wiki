@@ -27,7 +27,7 @@ const FavoriteItem = (props) => {
                     basedOn='letters'
                 />
             </div>
-            <SocialButtons item={true} key={props.key} index={props.index} url={fullurl} pageid={pageid}/>
+            <SocialButtons item={true} url={fullurl} pageid={pageid}/>
         </div>
     )
 }
