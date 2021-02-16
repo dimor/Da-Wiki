@@ -1,21 +1,26 @@
-.User{
-  
+
+.User {
     display: flex;
     flex-direction: column;
     width: 100%;
     align-items: center;
-    padding:2em 0 1em 0em;
-    margin:0;
-}   
-
-.User p{
-    color:white;
-    text-align: center;
-    margin-top:.9em;
-    font-family: Impact;
+    padding: 2em 0 1em 0em;
+    margin: 0;
 }
 
-.User img{
+
+
+.SignOut{
+    color:white;
+}
+
+.User p {
+    color: white;
+    text-align: center;
+    margin-top: .9em;
+}
+
+.User img {
     width: 30%;
     height: auto;
     border-radius: 20%;

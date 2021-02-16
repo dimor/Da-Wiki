@@ -18,7 +18,15 @@ const FavoriteItem = (props) => {
         <div className={classes.FavoriteItem}>
             <img src={thumbnail} alt="thumbnail" />
             <div className={classes.Information}>
-                <h4>{title}</h4>
+                <h4>
+                    <LinesEllipsis
+                        text={title}
+                        maxLine='2'
+                        ellipsis='...'
+                        trimRight
+                        basedOn='letters'
+                    /></h4>
+
                 <LinesEllipsis
                     text={extract}
                     maxLine='2'
@@ -27,7 +35,7 @@ const FavoriteItem = (props) => {
                     basedOn='letters'
                 />
             </div>
-            <SocialButtons item={true} url={fullurl} pageid={pageid}/>
+            <SocialButtons item={true} url={fullurl} pageid={pageid} />
         </div>
     )
 }

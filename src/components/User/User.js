@@ -7,13 +7,11 @@ const User = (props) => {
     const { displayName, photoURL } = props.user;
 
 
-
-
     return (
         <div style={{backgroundColor:SIDE_DRAWER_USER_COLOR}} className={classes.User}>
             <img alt={'profile'} src={photoURL} />
             <p>{displayName}</p>
-            <div onClick={props.toggle}><span onClick={props.signOut}>(Sign Out)</span></div>
+            <div onClick={props.toggle}><span className={classes.SignOut} onClick={props.signOut}>(Sign Out)</span></div>
         </div>
     )
 }

@@ -77,3 +77,18 @@
     font-size:calc(10px + 2vmin);
     margin:0;
 }
+.Card .Loader{
+    height: 50vh;
+    width: 50vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Card .Zoom{
+    width:100vw;
+    height: 40vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}

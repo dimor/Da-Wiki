@@ -1,0 +1,19 @@
+.EmptyFavorites{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+.Red{
+    font-size: 2em;
+    color:red;
+}
+
+.Links{
+    color:red;
+    font-size: 1.5em;
+    
+}

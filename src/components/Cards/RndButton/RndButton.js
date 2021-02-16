@@ -12,12 +12,12 @@ const RndButton = (props) => {
     
 
            return(
-               <button style={{color:constants.RND_BTN_COLOR}}  className={classes} onClick={props.click}>
+               <button style={{color:constants.RND_BTN_COLOR}}  className={classes} onClick={props.click}>דע
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
-                {props.loading?<Ellipsis size={32} color={constants.LOADER_COLOR} />:<p className={classes.Title} > דע</p>}
+                {props.loading?<Ellipsis size={32} color={constants.LOADER_COLOR} />:null}
             </button>);     
 }
 

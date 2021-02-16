@@ -19,23 +19,22 @@ const SocialButtons = props => {
     const db = firebase.firestore();
     const dispatch = useDispatch();
     const pageid = props.pageid;
-    const onLikeCard = (db, user, pageid, isIdExist) => dispatch(actions.onLikeCard(db, user, pageid, isIdExist))
+    const onLikeCard = (db, user, pageid, isIdExist,item) => dispatch(actions.onLikeCard(db, user, pageid, isIdExist ,item))
     const likeLoader = useSelector(state => state.favorite.likeLoader);
     const favoriteIds = useSelector(state => state.favorite.userFavoriteIds);
     const [isLikePressed, setOnLikePressed] = useState(false);
-
-
+    const item = props.item;
 
 
 
     const likeClicked = () => {
         if (user) {
             let isIdExist = favoriteIds.includes(`${pageid}`);
-            onLikeCard(db, user, pageid, isIdExist);
+            console.log("clicked sb " + item);
+            onLikeCard(db, user, pageid, isIdExist,item);
         } else {
             setModal(true);
         }
-
     }
 
 
@@ -43,6 +42,8 @@ const SocialButtons = props => {
         setOnLikePressed(false);
         if(favoriteIds.includes(`${pageid}`)){
             setOnLikePressed(true)
+        }else{
+            setOnLikePressed(false)
         }
     },[favoriteIds,pageid])
 

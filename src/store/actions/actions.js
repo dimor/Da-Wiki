@@ -68,7 +68,7 @@ export const setPreviousCard = () => {
 export const fetchCards = () => {
     return (dispatch) => {
         dispatch(cardsFetchStart())
-        const url = 'https://cors-anywhere.herokuapp.com/https://he.wikipedia.org/w/api.php?%20format=json&action=query&prop=extracts|pageimages|info&exsentences=2&exintro=&explaintext=&generator=random&grnlimit=10&grnnamespace=0&utf8=1&formatversion=2&piprop=thumbnail&pithumbsize=300&pilicense=any&redirect=1&inprop=url';
+        const url = 'https://corsto.herokuapp.com/https://he.wikipedia.org/w/api.php?%20format=json&action=query&prop=extracts|pageimages|info&exsentences=2&exintro=&explaintext=&generator=random&grnlimit=10&grnnamespace=0&utf8=1&formatversion=2&piprop=thumbnail&pithumbsize=300&pilicense=any&redirect=1&inprop=url';
         axios.get(url).then(res => {
             const cards = res.data.query.pages;
             const filteredCards = cards.filter(card => !card.extract.includes('האם התכוונתם ל'));

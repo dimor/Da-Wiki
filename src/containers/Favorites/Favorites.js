@@ -8,9 +8,9 @@ import React, { useEffect } from 'react';
 import firebase from '../../firebase';
 import { Default } from 'react-spinners-css';
 import { Redirect } from 'react-router-dom';
+import EmptyFavorites from '../../components/EmptyFavorites/EmptyFavorites';
 
-
-export const Favorites = () => {
+const Favorites = () => {
 
     const dispatch = useDispatch();
     const cards = useSelector(state => state.favorite.cards);
@@ -25,19 +25,19 @@ export const Favorites = () => {
     }, [])
 
 
-    let cardList = cards ? cards.map((card,index) => <FavoriteItem index={index} key={card.pageid} card={card} />) : <Default className={classes.Loader} />
+    let cardList = cards ? cards.map((card, index) => <FavoriteItem index={index} key={card.pageid} card={card} />) : <Default className={classes.Loader} />
 
 
     console.log(cardList);
 
-    
+
     return (
         <>
             {!currentUser ? <Redirect to={"/"} /> : null}
             <div className={classes.Wrapper}>
                 <div className={classes.Favorites} >
                     <Scroll cards={cards} height={'100%'}>
-                        {!cardList.length?<p>Empty</p>:cardList}
+                        {cardList.length === 0 ? <EmptyFavorites /> : cardList}
                     </Scroll>
                 </div>
             </div>

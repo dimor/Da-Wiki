@@ -6,7 +6,8 @@ const initialState = {
     cards:[],
     loading: false,
     likeLoader: false,
-    likeError: ''
+    likeError: '',
+    error:''
 }
 
 
@@ -14,16 +15,21 @@ const initialState = {
 const cardLikeAction = (state, action) => {
 
     let listUserFavoriteIds;
-    let listOfCards;
+    let listOfCards =[];
 
+    console.log('reducer card like action' , action);
 
     if (action.isIdExist) {
-
+ 
         listUserFavoriteIds = state.userFavoriteIds.filter(id => id !== `${action.pageid}`);
-        listOfCards = state.cards.filter(card=> card.pageid !== action.pageid);
-
+    
+        if(action.item){
+            listOfCards = state.cards.filter(card=> card.pageid !== action.pageid);
+        }
+         
+      
+     
     } else {
-
         listUserFavoriteIds = state.userFavoriteIds.concat(`${action.pageid}`)
     }
 

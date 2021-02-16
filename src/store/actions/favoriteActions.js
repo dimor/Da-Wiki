@@ -29,7 +29,7 @@ export const fetchFavoriteUserIdsFailed = (error) => {
     };
 }
 
-export const fetchFavoriteUserIds = (currentUser,favorites) => dispatch => {
+export const fetchFavoriteUserIds = (currentUser) => dispatch => {
 
     const db = firebase.firestore();
     const userFavoriteIdsArray = [];
@@ -43,6 +43,8 @@ export const fetchFavoriteUserIds = (currentUser,favorites) => dispatch => {
             }
             ).then(() => {
                 dispatch(fetchFavoriteUserIdsSuccess(userFavoriteIdsArray))
+            }).catch(error=>{
+                dispatch(fetchFavoriteUserIdsFailed(error))
             });
         }
 
@@ -54,10 +56,12 @@ export const fetchFavoriteCards=(favoriteIdsArray)=>dispatch=>{
     if(favoriteIdsArray.length){
         dispatch(fetchFavoriteCardsStart())
         const pageids = favoriteIdsArray.join('|')
-        const url = `https://cors-anywhere.herokuapp.com/https://he.wikipedia.org/w/api.php?%20format=json&action=query&pageids=${pageids}&prop=extracts|pageimages|info&exsentences=2&exintro=&explaintext=&utf8=1&formatversion=2&piprop=thumbnail&pithumbsize=300&pilicense=any&inprop=url`;
+        const url = `https://corsto.herokuapp.com/https://he.wikipedia.org/w/api.php?%20format=json&action=query&pageids=${pageids}&prop=extracts|pageimages|info&exsentences=2&exintro=&explaintext=&utf8=1&formatversion=2&piprop=thumbnail&pithumbsize=300&pilicense=any&inprop=url`;
         axios.get(url).then(res => {
             const cards = res.data.query.pages;
             dispatch(fetchFavoriteCardsSuccess(cards))
+        }).catch(error=>{
+            dispatch(fetchFavoriteCardsFailed(error))
         })
     }
 }
@@ -83,12 +87,12 @@ export const fetchFavoriteCardsFailed = (error) => {
 
 
 
-export const cardLikeSuccess = (pageid,isIdExist,index) =>{
+export const cardLikeSuccess = (pageid,isIdExist,item) =>{
     return{
         type:actionTypes.LIKE_CARD_SUCCESS,
         pageid,
         isIdExist,
-        index
+        item
     }
 }
 
@@ -108,18 +112,19 @@ export const cardLikeStart = () =>{
 }
 
 
-export const onLikeCard = (db,user,pageid,isIdExist,index)=>dispatch=>{
+export const onLikeCard = (db,user,pageid,isIdExist,item)=>dispatch=>{
+
+    console.log('action - onliked card ',item);
+
     dispatch(cardLikeStart());
     let dbReference;
-    console.log(isIdExist);
     if(!isIdExist){
         dbReference = db.collection(user.uid).doc(`${pageid}`).set({});
     }else{
         dbReference = db.collection(user.uid).doc(`${pageid}`).delete();
     }
-
     dbReference.then( ()=> {
-        dispatch(cardLikeSuccess(pageid,isIdExist,index)); 
+        dispatch(cardLikeSuccess(pageid,isIdExist,item)); 
     })
     .catch((error)=> {
         dispatch(cardLikeFailed(error));

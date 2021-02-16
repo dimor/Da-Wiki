@@ -5,7 +5,8 @@ import classes from './Card.module.css';
 import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { Default } from 'react-spinners-css';
 import ImageNotFound from '../../../assets/image-not-found.png';
-import {LOADER_COLOR} from '../../../constants';
+import { LOADER_COLOR } from '../../../constants';
+import Modal from '../../UI/Modal/Modal';
 
 const Card = props => {
     const { card } = props;
@@ -16,7 +17,7 @@ const Card = props => {
     const thumbnail = card.thumbnail ? card.thumbnail.source : ImageNotFound;
     const imageThumbnail = useRef(null);
     const [isImageLoading, setIsImageLoading] = useState(true);
-  
+    const [isModalOn, setModalState] = useState(false);
 
     useEffect(() => {
         setIsImageLoading(true);
@@ -27,18 +28,27 @@ const Card = props => {
     }, [thumbnail])
 
 
+    const setModal = () => {
+        setModalState((preState) => !preState);
+    }
+
+
+
     return (
         <div className={classes.Card}>
             {console.log('card- rendering')}
 
-            <img className={isImageLoading ? classes.Hide : null} ref={imageThumbnail} alt="thumbnail" />
-            {isImageLoading ? <Default color={LOADER_COLOR} /> : null}
+            <img onClick={setModal} className={isImageLoading ? classes.Hide : null} ref={imageThumbnail} alt="thumbnail" />
+            {isImageLoading ? <div className={classes.Loader}><Default color={LOADER_COLOR} /> </div> : null}
 
             <div className={classes.Container}>
                 <h3>{title}</h3>
                 <Scroll pageid={pageid} height={180}><p>{extract}</p></Scroll>
             </div>
             <SocialButtons url={fullurl} pageid={pageid} />
+            <Modal close={setModal} show={isModalOn}>
+                <div className={classes.Zoom} style={{ backgroundImage: `url(${thumbnail})` }}> </div>
+            </Modal>
         </div>)
 }
 
