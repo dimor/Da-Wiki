@@ -43,6 +43,7 @@ export const fetchFavoriteUserIds = (currentUser) => dispatch => {
             }
             ).then(() => {
                 dispatch(fetchFavoriteUserIdsSuccess(userFavoriteIdsArray))
+                dispatch(fetchFavoriteCards(userFavoriteIdsArray))
             }).catch(error=>{
                 dispatch(fetchFavoriteUserIdsFailed(error))
             });
@@ -53,16 +54,21 @@ export const fetchFavoriteUserIds = (currentUser) => dispatch => {
 
 
 export const fetchFavoriteCards=(favoriteIdsArray)=>dispatch=>{
+
+    let cards = [];
+
     if(favoriteIdsArray.length){
         dispatch(fetchFavoriteCardsStart())
         const pageids = favoriteIdsArray.join('|')
         const url = `https://corsto.herokuapp.com/https://he.wikipedia.org/w/api.php?%20format=json&action=query&pageids=${pageids}&prop=extracts|pageimages|info&exsentences=2&exintro=&explaintext=&utf8=1&formatversion=2&piprop=thumbnail&pithumbsize=300&pilicense=any&inprop=url`;
         axios.get(url).then(res => {
-            const cards = res.data.query.pages;
+             cards = res.data.query.pages;
             dispatch(fetchFavoriteCardsSuccess(cards))
         }).catch(error=>{
             dispatch(fetchFavoriteCardsFailed(error))
         })
+    }else{
+        dispatch(fetchFavoriteCardsSuccess(cards))
     }
 }
 

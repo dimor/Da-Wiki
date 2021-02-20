@@ -4,7 +4,7 @@ import * as actionTypes from '../../store/actions/actionTypes';
 const initialState = {
     userFavoriteIds: [],
     cards:[],
-    loading: false,
+    loading: true,
     likeLoader: false,
     likeError: '',
     error:''

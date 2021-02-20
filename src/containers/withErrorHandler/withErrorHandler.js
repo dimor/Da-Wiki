@@ -16,7 +16,7 @@ const withErrorHandler = (WrappedComponent, axios) => props => {
             <Modal
                 show={error}
                 close={clearError}>
-                {error ? <p style={{ textAlign: 'center', fontSize: '2rem' }}>{error.message}</p> : null}
+                {error ? <p style={{ textAlign: 'center', fontSize: '2rem' }}>{error.message} שגיאה , יש לרענן את העמוד</p> : null}
             </Modal>
             <WrappedComponent {...props} />
 

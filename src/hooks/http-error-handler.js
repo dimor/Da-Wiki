@@ -6,10 +6,6 @@ export default (httpClient,err) => {
 
     const [error, setError] = useState(null);
 
-    if(err){
-        setError(err)
-    }
-
 
     const reqInterceptor = httpClient.interceptors.request.use(req => {
         setError(null);

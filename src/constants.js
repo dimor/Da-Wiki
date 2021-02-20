@@ -6,3 +6,6 @@ export const SIDE_DRAWER_USER_COLOR = '#a7c5eb';
 export const APP_BACKGROUND_COLOR = '#f6ecf0';
 export const RND_BTN_COLOR= '#cd5d7d';
 export const RND_BTN_ANIMATION_COLOR= '#cd5d7d';
+
+export const LOGIN_FACEBOOK ='כנס/י באמצעות פייסבוק'
+export const LOGIN_GOOGLE = 'כנס/י באמצעות גוגל'

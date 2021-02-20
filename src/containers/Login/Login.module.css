@@ -13,13 +13,12 @@
     flex-direction: column;
     direction: rtl;
     background-color:#59606d;
-    
 }
 
-
-.Login button{
-    margin:.3em;
+.social{
+    font: normal normal 1rem Segoe UI;
 }
+
 
 .Login img{
     animation: float 5s ease-in-out infinite;

@@ -7,7 +7,7 @@ import { Default } from 'react-spinners-css';
 import ImageNotFound from '../../../assets/image-not-found.png';
 import { LOADER_COLOR } from '../../../constants';
 import Modal from '../../UI/Modal/Modal';
-
+import { FacebookLoginButton } from "react-social-login-buttons";
 const Card = props => {
     const { card } = props;
     const title = card.title;

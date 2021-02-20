@@ -9,23 +9,30 @@ import firebase from '../../firebase';
 import { Default } from 'react-spinners-css';
 import { Redirect } from 'react-router-dom';
 import EmptyFavorites from '../../components/EmptyFavorites/EmptyFavorites';
+import { Spinner } from 'react-spinners-css';
+import { LOADER_COLOR } from '../../constants';
+
+
 
 const Favorites = () => {
 
     const dispatch = useDispatch();
     const cards = useSelector(state => state.favorite.cards);
+    let loading = useSelector(state => state.favorite.loading);
     const currentUser = firebase.auth().currentUser;
     const favoriteIds = useSelector(state => state.favorite.userFavoriteIds);
-    console.log('Favorite -render');
+    console.log('Favorite -render' + favoriteIds);
 
     useEffect(() => {
         if (currentUser) {
-            dispatch(actions.fetchFavoriteCards(favoriteIds))
+
+        dispatch(actions.fetchFavoriteUserIds(currentUser));
+
         }
-    }, [])
+    }, [currentUser])
 
 
-    let cardList = cards ? cards.map((card, index) => <FavoriteItem index={index} key={card.pageid} card={card} />) : <Default className={classes.Loader} />
+    let cardList = cards.length>0?cards.map((card, index) => <FavoriteItem index={index} key={card.pageid} card={card} />):<EmptyFavorites />
 
 
     console.log(cardList);
@@ -37,7 +44,7 @@ const Favorites = () => {
             <div className={classes.Wrapper}>
                 <div className={classes.Favorites} >
                     <Scroll cards={cards} height={'100%'}>
-                        {cardList.length === 0 ? <EmptyFavorites /> : cardList}
+                    {loading?<Spinner color={LOADER_COLOR} />:cardList}
                     </Scroll>
                 </div>
             </div>

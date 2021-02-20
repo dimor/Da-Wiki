@@ -13,7 +13,6 @@ const NavigationItems = props => {
             ? <React.Fragment>
                 <NavigationItem link={'/'}>בית</NavigationItem>
                 <NavigationItem link={'/favorites'}>מועדפים</NavigationItem>
-                <NavigationItem link={'/category'}>קטגוריות</NavigationItem>
                 <NavigationItem link={'/about'}>אודות</NavigationItem>
             </React.Fragment>
             : <React.Fragment>

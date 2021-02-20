@@ -14,6 +14,7 @@ const Cards = props => {
     const [imgUrl, setImgUrl] = useState(null);
     const { cards } = props;
     const current = useSelector(state => state.indx.current);
+    const loading = useSelector(state => state.indx.loading);
     const dispatch = useDispatch();
 
 
@@ -38,7 +39,7 @@ const Cards = props => {
         <div className={classes.Cards}>
             {console.log('Cards- redndering')}
             <Card card={cards[current]} gallery={setGallery} />
-            <RndButton click={forward} />
+            <RndButton click={forward} loading={loading} />
             {imgUrl ? <Modal close={clearGalllery} show={imgUrl}><img src={imgUrl} alt={'gallery'} /></Modal> : null}
         </div>
 

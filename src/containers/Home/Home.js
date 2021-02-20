@@ -24,8 +24,8 @@ const Home = props => {
     useEffect(() => {
         if (!cards.length) {
             fetchCards();
-            if (currentUser && !cards.length) {
-                fetchFavoriteUserIds();
+            if (currentUser && cards.length>0) {
+           fetchFavoriteUserIds(currentUser);
                 console.log('fetchUserIDs - Home');
             } else {
                 console.log('No user Detected');

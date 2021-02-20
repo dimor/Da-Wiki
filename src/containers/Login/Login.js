@@ -6,12 +6,13 @@ import * as actions from '../../store/actions/index';
 import { Roller } from 'react-spinners-css';
 import { Redirect } from 'react-router-dom';
 import React from 'react';
-
+import { FacebookLoginButton } from "react-social-login-buttons";
+import { GoogleLoginButton } from "react-social-login-buttons";
+import * as constants from '../../constants';
 
 const Login = () => {
 
     const user = firebase.auth().currentUser;
-
 
     const dispatch = useDispatch();
 
@@ -26,8 +27,12 @@ const Login = () => {
             <div className={classes.Wrapper}>
                 <div className={classes.Login} >
                     {isLoading ? <Roller color="#fffff" style={{ padding: '24px' }} /> : <Logo />}
-                    <button onClick={() => onSignIn(firebase.auth.FacebookAuthProvider, firebase)}>Facebook</button>
-                    <button onClick={() => onSignIn(firebase.auth.GoogleAuthProvider, firebase)}>Google</button>
+                    <FacebookLoginButton style={{fontSize:'1rem'}} align="right" className={classes.social} onClick={() => onSignIn(firebase.auth.FacebookAuthProvider, firebase)} >
+                        {constants.LOGIN_FACEBOOK}
+                   </FacebookLoginButton>
+                    <GoogleLoginButton style={{fontSize:'1rem'}} align="right" className={classes.social} onClick={() => onSignIn(firebase.auth.GoogleAuthProvider, firebase)} >
+                    {constants.LOGIN_GOOGLE}
+                    </GoogleLoginButton>
                 </div>
             </div>
         </React.Fragment>
