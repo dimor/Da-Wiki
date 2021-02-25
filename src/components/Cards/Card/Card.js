@@ -7,7 +7,8 @@ import { Default } from 'react-spinners-css';
 import ImageNotFound from '../../../assets/image-not-found.png';
 import { LOADER_COLOR } from '../../../constants';
 import Modal from '../../UI/Modal/Modal';
-import { FacebookLoginButton } from "react-social-login-buttons";
+
+
 const Card = props => {
     const { card } = props;
     const title = card.title;
@@ -39,11 +40,11 @@ const Card = props => {
             {console.log('card- rendering')}
 
             <img onClick={setModal} className={isImageLoading ? classes.Hide : null} ref={imageThumbnail} alt="thumbnail" />
-            {isImageLoading ? <div className={classes.Loader}><Default color={LOADER_COLOR} /> </div> : null}
+            {isImageLoading ? <div className={classes.Loader}><Default color={LOADER_COLOR} size={84} /> </div> : null}
 
             <div className={classes.Container}>
                 <h3>{title}</h3>
-                <Scroll pageid={pageid} height={180}><p>{extract}</p></Scroll>
+                <Scroll  pageid={pageid}><p>{extract}</p></Scroll>
             </div>
             <SocialButtons url={fullurl} pageid={pageid} />
             <Modal close={setModal} show={isModalOn}>
@@ -51,9 +52,6 @@ const Card = props => {
             </Modal>
         </div>)
 }
-
-
-
 
 
 

@@ -3,11 +3,12 @@ import * as actionTypes from '../../store/actions/actionTypes';
 
 const initialState = {
     userFavoriteIds: [],
-    cards:[],
+    cards: [],
     loading: true,
     likeLoader: false,
     likeError: '',
-    error:''
+    error: '',
+    finished:false
 }
 
 
@@ -15,27 +16,27 @@ const initialState = {
 const cardLikeAction = (state, action) => {
 
     let listUserFavoriteIds;
-    let listOfCards =[];
+    let listOfCards = [];
 
-    console.log('reducer card like action' , action);
+    console.log('reducer card like action', action);
 
     if (action.isIdExist) {
- 
+
         listUserFavoriteIds = state.userFavoriteIds.filter(id => id !== `${action.pageid}`);
-    
-        if(action.item){
-            listOfCards = state.cards.filter(card=> card.pageid !== action.pageid);
+
+        if (action.item) {
+            listOfCards = state.cards.filter(card => card.pageid !== action.pageid);
         }
-         
-      
-     
+
+
+
     } else {
         listUserFavoriteIds = state.userFavoriteIds.concat(`${action.pageid}`)
     }
 
 
 
-    return { ...state, likeLoader: false, loading: false, userFavoriteIds: listUserFavoriteIds , cards:listOfCards   }
+    return { ...state, likeLoader: false, loading: false, userFavoriteIds: listUserFavoriteIds, cards: listOfCards }
 
 }
 
@@ -54,7 +55,7 @@ const favoriteReducer = (state = initialState, action) => {
         case actionTypes.FETCH_FAVORITE_CARDS_START:
             return { ...state, loading: true };
         case actionTypes.FETCH_FAVORITE_CARDS_SUCCESS:
-            return { ...state, cards: action.cards, loading: false };
+            return { ...state, finished: true, cards: action.cards, loading: false };
         case actionTypes.FETCH_FAVORITE_CARDS_FAILED:
             return { ...state, error: action.error, loading: false };
         case actionTypes.LIKE_CARD_START:
@@ -65,6 +66,8 @@ const favoriteReducer = (state = initialState, action) => {
             return { ...state, likeLoader: false, likeError: action.error }
         case actionTypes.CLEAR_FAVORITE_USER_LIKES:
             return { ...state, userFavoriteIds: [] }
+        case actionTypes.CLEAR_FAVORITES:
+            return { ...state, finished: false }
         default: return state;
 
     }

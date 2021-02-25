@@ -1,14 +1,21 @@
-.Cards{
+.Cards {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 2em;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-items: center;
+    flex-direction: column;
+    background-color: #f6ecf0;
+}
 
-display: flex;
-justify-content: center;
-margin:0;
-padding: 2em;
-box-sizing: border-box;
-width: 100%;
-height: 100%;
-align-items: center;
-justify-items: center;
-flex-direction: column;
-background-color:#f6ecf0;
+@media (max-height:415px) {
+
+    .Cards{
+        height: 100%;
+        padding: 1em;
+    }
 }

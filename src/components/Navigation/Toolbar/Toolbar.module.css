@@ -1,46 +1,67 @@
-.Toolbar{
-
-    height:8vmax;
+.Toolbar {
+    height: 8vh;
     width: 100%;
     position: relative;
-    top:0;
+    top: 0;
     left: 0;
-    background-color:#cd5d7d;
+    background-color: #cd5d7d;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding:0 20px;
+    padding: 0 20px;
+    margin: 0;
     box-sizing: border-box;
     z-index: 10;
-    box-shadow: 0 2px 4px -1px rgba(0,0,0,0.25);
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.25);
 }
 
-
-
-
-@media(min-width:500px){
-    .Toolbar svg{
-        display:none;
-    }
-
-    .Toolbar nav ul{
-
-        display: flex;
-        flex-direction: row-reverse;
-        margin-left: 1em;
-    }
-
-    .Toolbar nav ul li a{
-      
-        font-size: 1em;
-        margin-left: .4em;
-    
-    }
-}
-@media(max-width:499px){
-
-.Toolbar nav{
+.Toolbar svg {
     display: none;
 }
 
+.Toolbar nav ul {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-left: 1em;
 }
+
+.Toolbar nav ul li a {
+    font-size: 1em;
+    margin-left: .4em;
+}
+
+@media (max-width:768px) {
+    .Toolbar nav {
+        display: none;
+    }
+
+    .Toolbar svg {
+        display: block;
+    }
+
+    .Toolbar{
+        height: 8%;
+ 
+    }
+}
+
+
+
+@media (max-height:415px){
+
+
+    .Toolbar svg {
+        display: block;
+    }
+
+    .Toolbar nav {
+        display: none;
+    }
+
+    .Toolbar{
+        height: 14vh;
+    
+    }
+   
+   
+   }

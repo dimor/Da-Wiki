@@ -6,7 +6,6 @@ import * as actions from '../../store/actions/index';
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect } from 'react';
 import firebase from '../../firebase';
-import { Default } from 'react-spinners-css';
 import { Redirect } from 'react-router-dom';
 import EmptyFavorites from '../../components/EmptyFavorites/EmptyFavorites';
 import { Spinner } from 'react-spinners-css';
@@ -18,24 +17,54 @@ const Favorites = () => {
 
     const dispatch = useDispatch();
     const cards = useSelector(state => state.favorite.cards);
-    let loading = useSelector(state => state.favorite.loading);
+    let finished = useSelector(state => state.favorite.finished);
     const currentUser = firebase.auth().currentUser;
     const favoriteIds = useSelector(state => state.favorite.userFavoriteIds);
     console.log('Favorite -render' + favoriteIds);
 
+
     useEffect(() => {
+
         if (currentUser) {
-
-        dispatch(actions.fetchFavoriteUserIds(currentUser));
-
+            dispatch(actions.fetchFavoriteUserIds(currentUser));
         }
-    }, [currentUser])
+
+   
+    }, [cards.length])
 
 
-    let cardList = cards.length>0?cards.map((card, index) => <FavoriteItem index={index} key={card.pageid} card={card} />):<EmptyFavorites />
+
+    let cardList = cards.length? cards.map((card, index) => <FavoriteItem index={index} key={card.pageid} card={card} />) : <EmptyFavorites />
+
+    // if(cards.length === 0 &&  loading ) {
+        
+    // }
 
 
-    console.log(cardList);
+
+
+    // let cardList;
+    // if (cards) {
+    //     if (cards.length === 0) {
+
+    //         if (finished) {
+    //             cardList = <Spinner color={LOADER_COLOR} />
+    //         } else {
+    //             cardList = <EmptyFavorites />
+    //         }
+
+
+
+    //     } else {
+    //         cardList = cards.map((card, index) => <FavoriteItem index={index} key={card.pageid} card={card} />);
+    //     }
+    // } else {
+    //     cardList = <Spinner color={LOADER_COLOR} />
+    // }
+
+
+
+    console.log(" finished", finished);
 
 
     return (
@@ -43,8 +72,8 @@ const Favorites = () => {
             {!currentUser ? <Redirect to={"/"} /> : null}
             <div className={classes.Wrapper}>
                 <div className={classes.Favorites} >
-                    <Scroll cards={cards} height={'100%'}>
-                    {loading?<Spinner color={LOADER_COLOR} />:cardList}
+                    <Scroll cards={cards}>
+                    { finished ===false?  <Spinner color={LOADER_COLOR} /> : cardList }
                     </Scroll>
                 </div>
             </div>

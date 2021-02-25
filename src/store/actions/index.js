@@ -15,5 +15,6 @@ export{
     fetchFavoriteUserIds,
     onLikeCard,
     clearFavoriteUserIds,
-    fetchFavoriteCards
+    fetchFavoriteCards,
+    clearFavorites
 }from './favoriteActions'

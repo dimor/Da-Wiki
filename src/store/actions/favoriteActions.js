@@ -9,6 +9,13 @@ export const clearFavoriteUserIds = () => {
 }
 
 
+export const clearFavorites = () => {
+    return { type: actionTypes.CLEAR_FAVORITES };
+}
+
+
+
+
 export const fetchFavoriteUserIdsStart = () => {
     return { type: actionTypes.FETCH_FAVORITE_USERIDS_START };
 }
@@ -131,6 +138,7 @@ export const onLikeCard = (db,user,pageid,isIdExist,item)=>dispatch=>{
     }
     dbReference.then( ()=> {
         dispatch(cardLikeSuccess(pageid,isIdExist,item)); 
+        dispatch(clearFavorites())
     })
     .catch((error)=> {
         dispatch(cardLikeFailed(error));

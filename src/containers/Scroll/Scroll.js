@@ -4,7 +4,7 @@ import React from 'react';
 const Scroll =(props)=>{
     console.log('Scroll  - rendering');
     return(
-        <div style={{height:props.height}} className={classes.Scroll}>
+        <div className={classes.Scroll}>
             {props.children}
         </div>
     )
