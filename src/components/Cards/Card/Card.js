@@ -1,8 +1,7 @@
 import Scroll from '../../../containers/Scroll/Scroll';
 import SocialButtons from '../../SocialButtons/SocialButtons';
-import Magnifier from '../Magnifier/Magnifier';
 import classes from './Card.module.css';
-import React, { useEffect, useState, useCallback, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Default } from 'react-spinners-css';
 import ImageNotFound from '../../../assets/image-not-found.png';
 import { LOADER_COLOR } from '../../../constants';

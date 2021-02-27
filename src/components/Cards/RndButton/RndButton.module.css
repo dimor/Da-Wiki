@@ -1,12 +1,7 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@1,900&display=swap');
-
-
-
-
-button{
-    width:100%;
-    height:10%;
+button {
+    width: 100%;
+    height: 10%;
     background: white;
     border-style: none;
     font-size: 23px;
@@ -27,123 +22,163 @@ button{
     font-family: 'Rubik', sans-serif;
 }
 
-.Title{
+.Title {
     padding: 0;
     margin: 0;
 }
-button span{
+
+button span {
     position: absolute;
     display: block;
 }
-button span:nth-child(1){
+
+button span:nth-child(1) {
     height: 3px;
-    width:200px;
-    top:0px;
-    left:-200px;
-    background: linear-gradient(to right, rgba(0,0,0,0), #cd5d7d);
+    width: 200px;
+    top: 0px;
+    left: -200px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), #cd5d7d);
     border-top-right-radius: 1px;
     border-bottom-right-radius: 1px;
     animation: span1 2s linear infinite;
     animation-delay: 1s;
 }
 
-@keyframes span1{
-    0%{
-        left:-200px
+@keyframes span1 {
+    0% {
+        left: -200px
     }
-    100%{
-        left:200px;
+    100% {
+        left: 200px;
     }
 }
-button span:nth-child(2){
+
+button span:nth-child(2) {
     height: 70px;
     width: 3px;
-    top:-70px;
-    right:0px;
-    background: linear-gradient(to bottom, rgba(0,0,0,0), #cd5d7d);
+    top: -70px;
+    right: 0px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #cd5d7d);
     border-bottom-left-radius: 1px;
     border-bottom-right-radius: 1px;
     animation: span2 2s linear infinite;
     animation-delay: 2s;
 }
-@keyframes span2{
-    0%{
-        top:-70px;
+
+@keyframes span2 {
+    0% {
+        top: -70px;
     }
-    100%{
-        top:70px;
+    100% {
+        top: 70px;
     }
 }
-button span:nth-child(3){
-    height:3px;
-    width:200px;
-    right:-200px;
+
+button span:nth-child(3) {
+    height: 3px;
+    width: 200px;
+    right: -200px;
     bottom: 0px;
-    background: linear-gradient(to left, rgba(0,0,0,0), #cd5d7d);
+    background: linear-gradient(to left, rgba(0, 0, 0, 0), #cd5d7d);
     border-top-left-radius: 1px;
     border-bottom-left-radius: 1px;
     animation: span3 2s linear infinite;
     animation-delay: 3s;
 }
-@keyframes span3{
-    0%{
-        right:-200px;
+
+@keyframes span3 {
+    0% {
+        right: -200px;
     }
-    100%{
+    100% {
         right: 200px;
     }
 }
 
-button span:nth-child(4){
-    height:70px;
-    width:3px;
-    bottom:-70px;
-    left:0px;
-    background: linear-gradient(to top, rgba(0,0,0,0), #cd5d7d);
+button span:nth-child(4) {
+    height: 70px;
+    width: 3px;
+    bottom: -70px;
+    left: 0px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0), #cd5d7d);
     border-top-right-radius: 1px;
     border-top-left-radius: 1px;
     animation: span4 2s linear infinite;
     animation-delay: 4s;
 }
-@keyframes span4{
-    0%{
+
+@keyframes span4 {
+    0% {
         bottom: -70px;
     }
-    100%{
-        bottom:70px;
+    100% {
+        bottom: 70px;
     }
 }
 
-button p{
+button p {
     transition: all .3s;
 }
 
-button:hover{
-   
-    box-shadow: 0px 3px 5px rgba(0,0,0,.4);
-
-
+button:hover {
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, .4);
 }
 
-
-button:active span{
-    background: linear-gradient(to top, rgba(0,0,0,0), #ce021d);
+button:active span {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0), #ce021d);
 }
 
-
-button:active{
+button:active {
     transform: scale(1.1);
-    color:white;
+    color: white;
     font-size: 3em;
 }
 
 
-@media (max-height:415px){
+@media (min-width:768px){
+  
+    button {
+        font-size: 1rem;
+    }
+    button:active {
+        transform: scale(1.1);
+        color: white;
+        font-size: 3rem;
+    }
+  
+  
+  }
+
+  @media (min-width:1024px){
+  
+    button {
+        font-size: 2.5rem;
+    }
+    button:active {
+        transform: scale(1.1);
+        color: white;
+        font-size: 4rem;
+    }
+  
+  
+  }
 
 
-    button{
+  
+
+/* @media (max-height:415px) {
+    button {
         height: 20%;
     }
-   
-   
-   }
+}
+
+@media (min-width:414px) and (min-height:414px) {
+    button {
+        font-size: 3em;
+    }
+    button:active {
+        transform: scale(1.1);
+        color: white;
+        font-size: 5em;
+    }
+} */

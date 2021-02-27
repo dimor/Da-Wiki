@@ -1,14 +1,21 @@
-.Logo{
-
-height: auto;
-width: 35px;
-
+.Logo {
+    height: auto;
+    width: 35px;
 }
 
-.LogoSide{
-
+.LogoSide {
     height: auto;
     width: 40vw;
+}
 
-    
+/* @media (max-height:415px) {
+    .Logo {
+        width: 4vmax;
     }
+} */
+
+@media (min-width:768px) {
+    .Logo {
+        width: 2.0vmax;
+    }
+}

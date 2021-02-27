@@ -1,6 +1,6 @@
 
 import logo from '../../assets/logo.png';
-
+import { NavLink } from 'react-router-dom';
 //import logoDrawer from '../../assets/logo-drawer.png';
 
 
@@ -19,7 +19,7 @@ const Logo = props=>{
     toolbar?logoClasses.push(classes.Logo):logoClasses.push(classes.LogoSide)
 
 
-    return <img className={logoClasses} src={toolbar?logo:logoDrawer} alt="logo" />
+    return <NavLink to="/"><img className={logoClasses} src={toolbar?logo:logoDrawer} alt="logo" /></NavLink>
 }
 ;
 

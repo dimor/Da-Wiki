@@ -67,3 +67,20 @@
       
     }
 }
+
+@media (min-width:768px) {
+
+    .Login img {
+
+       width: 15vw;
+
+    }
+
+    .Wrapper{
+      
+    }
+
+    .Login{
+      
+    }
+}

@@ -34,19 +34,15 @@
     .Toolbar nav {
         display: none;
     }
-
     .Toolbar svg {
         display: block;
     }
-
-    .Toolbar{
+    .Toolbar {
         height: 8%;
- 
     }
 }
 
-
-
+/* 
 @media (max-height:415px){
 
 
@@ -64,4 +60,16 @@
     }
    
    
-   }
+   } */
+
+@media (min-width:768px) {
+    .Toolbar svg {
+        display: none;
+    }
+    .Toolbar nav {
+        display: block;
+    }
+    .Toolbar {
+        height: 7vh;
+    }
+}

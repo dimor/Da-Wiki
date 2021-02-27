@@ -1,6 +1,5 @@
 import classes from './About.module.css';
 import React from 'react';
-import Logo from '../../components/Logo/Logo';
 import logo from '../../assets/dawikilogo.png';
 
 const About = () => {
@@ -11,8 +10,8 @@ const About = () => {
 
             <div className={classes.Wrapper}>
                 <div className={classes.About} >
-                <img src={logo} />
-                    <p> האתר דע-ויקי שואב את המידע מתוך מאות אלפי ערכי ויקדפידה ומציג אותם בצורה ידידותית וקליקה,
+                <img src={logo} alt={logo} />
+                    <p> האתר דע-ויקי שואב את המידע מתוך מאות אלפי ערכי ויקדפידה ומציג אותם בצורה ידידותית וקלילה,
                       כך שתוכלו ללמוד כמות גדולה של ערכים בזמן קצר,ובנוסף תוכלו לשמור ערכים שאהבתם</p>
                         <p>   נבנה על ידי: </p>
                             

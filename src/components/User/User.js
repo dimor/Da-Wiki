@@ -6,12 +6,14 @@ const User = (props) => {
 
     const { displayName, photoURL } = props.user;
 
+    let design = props.toolbar? classes.Toolbar : classes.User
+
 
     return (
-        <div style={{backgroundColor:SIDE_DRAWER_USER_COLOR}} className={classes.User}>
+        <div style={props.toolbar?null:{backgroundColor:SIDE_DRAWER_USER_COLOR}} className={design}>
             <img alt={'profile'} src={photoURL} />
             <p>{displayName}</p>
-            <div onClick={props.toggle}><span className={classes.SignOut} onClick={props.signOut}>(Sign Out)</span></div>
+            <div onClick={props.toolbar?null:props.toggle}><span className={classes.SignOut} onClick={props.signOut}>(Sign Out)</span></div>
         </div>
     )
 }

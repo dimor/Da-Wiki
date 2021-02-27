@@ -15,10 +15,11 @@ export const signInFailed = () => {
 
 }
 
-export const signInSuccess = () => {
+export const signInSuccess = (user) => {
 
     return {
-        type: actionTypes.SIGN_IN_SUCCESS
+        type: actionTypes.SIGN_IN_SUCCESS,
+        user:user
     }
 
 }
@@ -72,7 +73,7 @@ export const signIn = (providerName, firebase) => dispatch => {
     .then(()=> {
       return firebase.auth().signInWithPopup(provider)
           .then((result) => {
-              dispatch(signInSuccess())
+              dispatch(signInSuccess(result.user))
           }).catch(error => {
               const errorMessage = error.message;
               dispatch(signInFailed(errorMessage))

@@ -11,12 +11,35 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+
     
 }
 
 .SideDrawer nav{
     margin-top:1em;
 }
+
+
+.SideDrawer nav a {
+    color: #ffffff;
+    text-decoration: none;
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+    font-size: 2rem;
+}
+
+.SideDrawer nav a:hover, .SideDrawer nav a:active {
+    color: #c50454;
+    text-decoration: none;
+    font-size: 2rem;
+}
+
+
+
+
+
+
 
 .Open{
     transform: translateX(0);
@@ -26,3 +49,26 @@
 .Close{
     transform:translateX(100%);
 }
+
+
+
+/* @media (max-height:415px){
+
+
+    .SideDrawer{
+       
+        width: 50%;
+       
+    }
+
+
+    .SideDrawer img{
+       
+        display: block;
+        width: 20vw;
+    }
+
+
+
+
+} */

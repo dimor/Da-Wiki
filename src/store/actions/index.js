@@ -8,7 +8,8 @@ export {
 
 export {
     signIn,
-    signOut
+    signOut,
+    signInSuccess
 } from './authActions'
 
 export{

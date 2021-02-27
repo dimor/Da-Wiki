@@ -1,53 +1,104 @@
-.SocialButtons{
-
-display: flex;
-justify-content: center;
-padding: .4em;
+.SocialButtons {
+  display: flex;
+  justify-content: center;
+  padding: .4em;
 }
 
-.SocialButtons svg{
+.SocialButtons svg {
   margin: .5em;
 }
 
-
-
-.SocialButtons.Item{
+.SocialButtons.Item {
   flex-direction: column;
   height: max-content;
-  width:max-content;
-  padding:0;
+  width: max-content;
+  padding: 0;
   justify-content: center;
-  margin:0;
+  margin: 0;
   display: flex;
   justify-self: center;
 }
 
-
-.PleaseLogin{
-    text-align:center;
-    height: 20vh;
-    padding:1em;
+.PleaseLogin {
+  text-align: center;
+  height: 20vh;
+  padding: 1em;
 }
 
-.PleaseLogin button{
-    height: 10vh;
-    margin-top:1em; 
+.PleaseLogin button {
+  height: 10vh;
+  margin-top: 1em;
 }
 
-.PleaseLogin a:link,
-.PleaseLogin a:visited {
-    background-color: white;
-    color: rgb(51, 47, 47);
-    border: 2px solid #949cdf;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    width: 70%;
+.PleaseLogin a:link, .PleaseLogin a:visited {
+  background-color: white;
+  color: rgb(51, 47, 47);
+  border: 2px solid #949cdf;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  width: 70%;
+}
+
+.PleseLogin a:hover, a:active {
+  background-color: #949cdf;
+  color: white;
+}
+
+@media (max-width:320px) {
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (min-width:768px) {
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+
+@media (min-width:1024px) {
+
+  .SocialButtons {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 3;
+    grid-row-end: 4;
+  
   }
 
 
-  .PleseLogin a:hover, a:active {
-    background-color:  #949cdf;
-    color: white;
+  .SocialButtons.Item {
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  
   }
+
+  svg {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+
+
+/* @media (min-width:415px) and (min-height:414px)  {
+  svg {
+    width: 64px;
+    height: 64px;
+  }
+}
+
+
+@media (min-height:414px) {
+  svg {
+    width: 32px;
+    height: 32px;
+  }
+} */

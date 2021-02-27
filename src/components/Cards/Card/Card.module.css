@@ -12,10 +12,10 @@
     align-items: center;
     flex-direction: column;
     direction: rtl;
-    background-color:white;
+    background-color: white;
 }
 
-.Hide{
+.Hide {
     display: none;
 }
 
@@ -23,37 +23,17 @@
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-
-.Card .Badge{
-        position: absolute;
-        background: rgba(253, 253, 253, 0);
-        margin: 1em;
-        padding: 0;
-    
-}
-
-.Badge svg{
-    fill:rgba(87, 85, 85, 0.705);
-    padding: 0;
-    margin:0;
-    animation: badge 3s ease 0s infinite alternate;
-
-}
-
-
-  .Card img{
+.Card img {
     border-radius: 16px;
-    height: 30vh;
-    width: 50vw;
+    height: 25vmax;
+    width: 35vmax;
     margin: 0em;
     padding: 0em;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     object-fit: cover;
-  }
+}
 
-
-
-.Container{
+.Container {
     box-sizing: border-box;
     padding: 1em 1em 0em 1em;
     display: flex;
@@ -63,7 +43,7 @@
 }
 
 .Container h3 {
-    margin:.5em;
+    margin: .5em;
     padding: 0;
     width: 100%;
 }
@@ -71,10 +51,11 @@
 .Container p {
     width: 100%;
     padding: 0;
-    font-size:calc(10px + 2vmin);
-    margin:0;
+    font-size: calc(6px + 2vmin);
+    margin: 0;
 }
-.Card .Loader{
+
+.Card .Loader {
     height: 30vh;
     width: 50vw;
     display: flex;
@@ -82,27 +63,111 @@
     justify-content: center;
 }
 
-.Card .Zoom{
-    width:100vw;
+.Card .Zoom {
+    width: 100vw;
     height: 40vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
 }
 
+@media (min-width:768px) {
+    .Card {
+       display: grid;
+       grid-template-columns: 50% 50%;
+       grid-template-rows:  10% 70% 20%;
+    }
+    .Card img {
+        
+        width: 80%;
+        height: 80%;
+        justify-self: center;
+        grid-column-start: 2;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 4;
+        object-fit: contain;
+    }
+    .Container h3 {
+        font-size: 2rem;
+    }
+    .Container p {
+        font-size: 1.5rem;
+    }
+    .Container {
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 2;
+        grid-row-end: 3;
+     
+    }
 
-@media (max-height:415px){
+    .Card .Loader {
+        width: 50%;
+        height: 50%;
+        justify-self: center;
+        grid-column-start: 2;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 4;
+    }
+}
 
+@media (max-width:768px) {
+    .Card img {
+        width: 50vw;
+        height: 30vh;
+    }
+    .Container h3 {
+        font-size: 1rem;
+    }
+    .Container p {
+        font-size: .9rem;
+    }
+    .Container {
+        height: 25vmax;
+    }
+}
 
-    .Card{
+@media (max-width:320px) {
+    .Card img {
+        width: 45vw;
+        height: 25vh;
+    }
+    .Container h3 {
+        font-size: .9em;
+    }
+    .Container p {}
+}
+
+/* @media (max-height:415px) {
+    .Card {
         flex-direction: row;
         height: 80%;
         padding: 1em;
-      
-       
     }
+} */
 
+/* @media (min-width:414px) and (min-height:414px) {
+    .Container h3 {
 
+        font-size: calc(10px + 3vmin);
+    }
+    .Card {
 
+        
+    }
+    .Card img {
+        width: 30vw;
+        height: 30vh;
+    }
+    .Container {
+        height: 30vmax;
+    }
+} */
 
-}
+/* @media (min-height:414px) {
+    .Container {
+        height: 22vmax;
+    }
+} */

@@ -1,17 +1,21 @@
-
-.Link a{
-    color:#ffffff;
-    text-decoration:none;
+.Link a {
+    color: #ffffff;
+    text-decoration: none;
     width: 100%;
     box-sizing: border-box;
     display: block;
-    font-size: 2rem;
-
+    font-size: 1rem;
 }
 
-.Link a:hover,
-.Link a:active{
-color:#40A4C8;
-text-decoration:none;
-font-size: 2rem;
+.Link a:hover, .Link a:active {
+    color: #f6fa00;
+    text-decoration: none;
+    font-size: 1rem;
 }
+
+/* @media (max-height:415px) {
+    .Link a {
+        font-size: 1.7rem;
+    }
+}
+ */

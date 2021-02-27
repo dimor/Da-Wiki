@@ -17,3 +17,11 @@ padding: 0;
    
    
    }
+
+
+   @media (min-width:768px) {
+
+      main{
+         height:93vh;
+      }
+  }

@@ -16,7 +16,6 @@ const firebaseConfig = {
   };
   
 
-
     const firebaseInstance = firebase.initializeApp(firebaseConfig);
     
 
