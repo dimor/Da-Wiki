@@ -74,7 +74,7 @@ const SocialButtons = props => {
     return (
         <React.Fragment>
             <div className={socialClasses.join(' ')}>
-                {likeLoader ? <Default color={LOADER_COLOR} size={44} /> : <Like exist={isLikePressed} clicked={likeClicked} />}
+                {likeLoader ? <Default color={LOADER_COLOR} size={window.innerWidth>=768&&!props.item?64:44} /> : <Like exist={isLikePressed} clicked={likeClicked} />}
                 <Website url={props.url} />
             </div>
             {modal}

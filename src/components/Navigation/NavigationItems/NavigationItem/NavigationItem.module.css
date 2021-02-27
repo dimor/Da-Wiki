@@ -7,11 +7,12 @@
     font-size: 1rem;
 }
 
-.Link a:hover, .Link a:active {
+.Link a:hover {
     color: #f6fa00;
     text-decoration: none;
     font-size: 1rem;
 }
+
 
 /* @media (max-height:415px) {
     .Link a {
@@ -19,3 +20,15 @@
     }
 }
  */
+
+@media (min-width:768px){
+
+    .Link a {
+        font-size: 1.5rem;
+    
+    }
+
+    .Link a:hover, .Link a:active {
+        font-size: 1.6rem;
+    }
+}

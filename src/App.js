@@ -35,10 +35,10 @@ const App=()=> {
     <div className="App">
       <Layout>
         <Switch>
-        <Route exact path={'/'} component={Home} />
-        <Route  path={'/Login'} component={Login} />
-        <Route  path={'/Favorites'} component={Favorites} />
-        <Route  path={'/About'} component={About} />
+        <Route exact  path={'/'} component={Home} />
+        <Route exact  path={'/Login'} component={Login} />
+        <Route  exact path={'/Favorites'} component={Favorites} />
+        <Route exact  path={'/About'} component={About} />
         <Route path={'*'} component={Home} />
         </Switch>
 

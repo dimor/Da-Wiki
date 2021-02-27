@@ -19,3 +19,12 @@
         width: 2.0vmax;
     }
 }
+
+@media (max-width:320px)
+ {
+
+    .Logo {
+        width: 5vmax;
+    }
+
+ }

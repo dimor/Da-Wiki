@@ -53,39 +53,50 @@
   }
 }
 
-@media (min-width:768px) {
+@media (max-width:768px) {
   svg {
     width: 1.5rem;
     height: 1.5rem;
   }
-}
-
-
-@media (min-width:1024px) {
-
   .SocialButtons {
     grid-column-start: 1;
     grid-column-end: 1;
     grid-row-start: 3;
     grid-row-end: 4;
-  
   }
+}
 
-
+@media (min-width:1024px) {
+  .SocialButtons {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 3;
+    grid-row-end: 4;
+  }
   .SocialButtons.Item {
     grid-column-start: 3;
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 1;
-  
   }
-
+  .SocialButtons.Item svg {
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+  }
   svg {
     width: 3rem;
     height: 3rem;
+   
   }
-}
 
+  .SocialButtons div{
+    cursor: pointer;
+    z-index: 1;
+  }
+
+
+}
 
 
 /* @media (min-width:415px) and (min-height:414px)  {
