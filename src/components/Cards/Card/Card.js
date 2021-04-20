@@ -38,7 +38,7 @@ const Card = props => {
         <div className={classes.Card}>
             {console.log('card- rendering')}
 
-            <img onClick={setModal} className={isImageLoading ? classes.Hide : null} ref={imageThumbnail} alt="thumbnail" />
+            <img onClick={setModal} className={isImageLoading ? classes.Hide : null}  ref={imageThumbnail} alt="thumbnail" />
             {isImageLoading ? <div className={classes.Loader}><Default color={LOADER_COLOR} size={84} /> </div> : null}
 
             <div className={classes.Container}>
